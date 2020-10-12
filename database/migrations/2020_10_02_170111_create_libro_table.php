@@ -22,6 +22,8 @@ class CreateLibroTable extends Migration
             $table->string('foto',100)->nullable();
             $table->unsignedInteger('cantidad');
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 
