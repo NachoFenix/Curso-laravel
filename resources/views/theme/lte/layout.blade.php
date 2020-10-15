@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('titulo','Biblioteca') | tutoriales virtuales</title>
+    <title>@yield('titulo', 'Biblioteca') | tutorialesvirtuales</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -16,77 +15,58 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset("assets/lte/dist/css/AdminLTE.min.css")}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+           folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset("assets/lte/dist/css/skins/_all-skins.min.css")}}">
 
+    @yield("styles")
+
     <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
-    @yield('styles')
+
+    @yield("styles")
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-
 <body class="hold-transition skin-blue layout-boxed sidebar-mini">
     <!-- Site wrapper -->
-    <div class="wrapper"></div>
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        @include('theme/lte/header')
-        <!-- content aside -->
-        @include('theme/lte/aside')
-
-        <section class="content">
-
-          @yield('contenido')
-          {{-- <div class="callout callout-info">
-            <h4>Tip!</h4>
-    
-            <p>Add the layout-boxed class to the body tag to get this layout. The boxed layout is helpful when working on
-              large screens because it prevents the site from stretching very wide.</p>
-          </div>
-          <!-- Default box -->
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Title</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              Start creating your amazing application!
-            </div>
-            <!-- /.box-body -->
-          </div> --}}
-        </section>
-        
-      </div>
-      <!-- Footer -->
-      @include('theme/lte/footer')
-      <!-- jQuery 3 -->
+    <div class="wrapper">
+        <!-- Inicio Header -->
+        @include("theme/lte/header")
+        <!-- Fin Header -->
+        <!-- Inicio Aside -->
+        @include("theme/lte/aside")
+        <!-- Fin Aside -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content">
+                @yield('contenido')
+            </section>
+        </div>
+        <!--Inicio Footer -->
+        @include("theme/lte/footer")
+        <!-- Fin Footer -->
+    </div>
     <script src="{{asset("assets/lte/bower_components/jquery/dist/jquery.min.js")}}"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="{{asset("assets/lte/bower_components/bootstrap/dist/js/bootstrap.min.js")}}"></script>
-<!-- SlimScroll -->
-<script src="{{asset("assets/lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js")}}"></script>
-<!-- FastClick -->
-<script src="{{asset("assets/lte/bower_components/fastclick/lib/fastclick.js")}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset("assets/lte/dist/js/adminlte.min.js")}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset("assets/lte/dist/js/demo.js")}}"></script>
-<script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
-<script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
-<script src="{{asset("assets/js/funciones.js")}}"></script>
-@yield('scrips')
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{{asset("assets/lte/bower_components/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+    <!-- SlimScroll -->
+    <script src="{{asset("assets/lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js")}}"></script>
+    <!-- FastClick -->
+    <script src="{{asset("assets/lte/bower_components/fastclick/lib/fastclick.js")}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset("assets/lte/dist/js/adminlte.min.js")}}"></script>
+    <!-- AdminLTE for demo purposes -->
+    @yield("scriptsPlugins")
+    <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
+    <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
+    <script src="{{asset("assets/js/funciones.js")}}"></script>
+    @yield("scripts")
 </body>
 
 </html>
