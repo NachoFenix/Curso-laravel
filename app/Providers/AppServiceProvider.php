@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use Facade\FlareClient\View;
+use App\Models\Admin\Menu;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //View::share('theme','lte');
+        view()->composer('theme.lte.aside', function ($view) {
+            $menus = Menu::getMenu(true);
+            $view->with('menusComposer',$menus);
+        });
+        View::share('theme','lte');
     }
 }
