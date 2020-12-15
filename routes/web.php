@@ -17,8 +17,16 @@ Route::get('/', 'InicioController@index')->name('inicio');
 Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
 Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
+Route::post('ajax-sesion', 'AjaxController@setSession')->name('ajax')->middleware('auth');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
     Route::get('', 'AdminController@index');
+     /*RUTAS DE USUARIO*/
+     Route::get('usuario', 'UsuarioController@index')->name('usuario');
+     Route::get('usuario/crear', 'UsuarioController@crear')->name('crear_usuario');
+     Route::post('usuario', 'UsuarioController@guardar')->name('guardar_usuario');
+     Route::get('usuario/{id}/editar', 'UsuarioController@editar')->name('editar_usuario');
+     Route::put('usuario/{id}', 'UsuarioController@actualizar')->name('actualizar_usuario');
+     Route::delete('usuario/{id}', 'UsuarioController@eliminar')->name('eliminar_usuario');
     /*RUTAS DEL PERMISO*/
     Route::get('permiso', 'PermisoController@index')->name('permiso');
     Route::get('permiso/crear', 'PermisoController@crear')->name('crear_permiso');
